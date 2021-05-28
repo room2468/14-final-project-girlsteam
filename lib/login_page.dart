@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:register/home_page.dart';
+import 'package:berise/home.dart';
 
 
 class LoginPage extends StatefulWidget {
