@@ -1,0 +1,4 @@
+#Wed Jun 02 13:37:00 ICT 2021
+base.0=E\:\\SEMESTER 4\\PEMROGRAMAN MOBILE\\UAS\\berise\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
