@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:register/home_barang.dart';
+import 'package:berise/home_barang.dart';
 // import 'package:register/home_stok.dart';
 // import 'package:admintoko/pages/data_barang.dart';
 // import 'package:admintoko/pages/data_stok.dart';
@@ -96,11 +96,11 @@ class HomePage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.white)),
                               onPressed: () {
-                                // Navigator.push(
-                                //     context,
-                                //     new MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             new BarangPage()));
+                                Navigator.push(
+                                    context,
+                                    new MaterialPageRoute(
+                                        builder: (context) =>
+                                            new BarangPage()));
                               },
                               color: Colors.white,
                               textColor: Colors.black,
