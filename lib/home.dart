@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:berise/home_barang.dart';
-// import 'package:register/home_stok.dart';
+import 'package:berise/home_barangrusak.dart';
+import 'package:berise/home_stok.dart';
 // import 'package:admintoko/pages/data_barang.dart';
 // import 'package:admintoko/pages/data_stok.dart';
 
@@ -161,12 +162,7 @@ class HomePage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.white)),
-                              onPressed: () {
-                                // Navigator.push(
-                                //     context,
-                                //     new MaterialPageRoute(
-                                //         builder: (context) => new StokPage()));
-                              },
+                              onPressed: () {},
                               color: Colors.white,
                               textColor: Colors.black,
                               child: Column(
@@ -234,7 +230,13 @@ class HomePage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.white)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    new MaterialPageRoute(
+                                        builder: (context) =>
+                                            new BarangRusakPage()));
+                              },
                               color: Colors.white,
                               textColor: Colors.black,
                               child: Column(
