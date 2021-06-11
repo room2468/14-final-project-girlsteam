@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:berise/home_barang.dart';
+import 'package:berise/home_barangrusak.dart';
 
 class HomePage extends StatelessWidget {
   static String tag = 'home-page';
@@ -158,12 +159,7 @@ class HomePage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.white)),
-                              onPressed: () {
-                                // Navigator.push(
-                                //     context,
-                                //     new MaterialPageRoute(
-                                //         builder: (context) => new StokPage()));
-                              },
+                              onPressed: () {},
                               color: Colors.white,
                               textColor: Colors.black,
                               child: Column(
@@ -231,7 +227,13 @@ class HomePage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.white)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    new MaterialPageRoute(
+                                        builder: (context) =>
+                                            new BarangRusakPage()));
+                              },
                               color: Colors.white,
                               textColor: Colors.black,
                               child: Column(
