@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:berise/home_barang.dart';
-// import 'package:register/home_stok.dart';
-// import 'package:admintoko/pages/data_barang.dart';
-// import 'package:admintoko/pages/data_stok.dart';
 
 class HomePage extends StatelessWidget {
   static String tag = 'home-page';
