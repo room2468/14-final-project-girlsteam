@@ -3,7 +3,11 @@ import 'dart:async';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'barang.dart';
+import 'supplier.dart';
 import 'barangrusak.dart';
+import 'package:berise/barang.dart';
+import 'package:berise/supplier.dart';
+import 'package:berise/barangrusak.dart';
 
 class DbHelper {
   static DbHelper _dbHelper;
@@ -30,6 +34,7 @@ class DbHelper {
   void _createDb(Database db, int version) async {
     var batch = db.batch();
     batch.execute('DROP TABLE IF EXISTS barang');
+    batch.execute('DROP TABLE IF EXISTS supplier');
     batch.execute('DROP TABLE IF EXISTS barangrusak');
     batch.execute('''
       CREATE TABLE barang (
@@ -41,11 +46,19 @@ class DbHelper {
       )
     ''');
     batch.execute('''
+      CREATE TABLE supplier (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+ nama TEXT,
+ alamat TEXT,
+ notelepon INTEGER
+      )
+    ''');
+    batch.execute('''
       CREATE TABLE barangrusak (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
  kodebarang TEXT,
- satuan INTEGER,
- keterangan INTEGER
+ satuan TEXT,
+ keterangan TEXT
       )
     ''');
     await batch.commit();
@@ -55,11 +68,18 @@ class DbHelper {
   Future<List<Map<String, dynamic>>> selectBarang() async {
     Database db = await this.initDb();
     var mapList = await db.query('barang',
-        orderBy: 'keterangan'); //nampilin data dari table diurutkan dengan nama
+        orderBy: 'kodebarang'); //nampilin data dari table diurutkan dengan nama
     return mapList;
   }
 
-  Future<List<Map<String, dynamic>>> selectBarangrusak() async {
+  Future<List<Map<String, dynamic>>> selectSupplier() async {
+    Database db = await this.initDb();
+    var mapList = await db.query('supplier',
+        orderBy: 'nama'); //nampilin data dari table diurutkan dengan nama
+    return mapList;
+  }
+
+  Future<List<Map<String, dynamic>>> selectRusak() async {
     Database db = await this.initDb();
     var mapList = await db.query('barangrusak',
         orderBy: 'kodebarang'); //nampilin data dari table diurutkan dengan nama
@@ -73,13 +93,19 @@ class DbHelper {
     return count;
   }
 
-  Future<int> insertBarangrusak(BarangRusak object) async {
+  Future<int> insertRusak(Rusak object) async {
     Database db = await this.initDb();
     int count = await db.insert('barangrusak', object.toMap());
     return count;
   }
 
-//fungsi untuk update data tabel stok
+  Future<int> insertSupplier(Supplier object) async {
+    Database db = await this.initDb();
+    int count = await db.insert('supplier', object.toMap());
+    return count;
+  }
+
+//fungsi untuk update data tabel
   Future<int> updateBarang(Barang object) async {
     Database db = await this.initDb();
     int count = await db.update('barang', object.toMap(),
@@ -87,23 +113,43 @@ class DbHelper {
     return count;
   }
 
-  Future<int> updateBarangrusak(BarangRusak object) async {
+  // Future<int> update(Item object) async {
+  //   Database db = await this.initDb();
+  //   int count = await db
+  //       .update('item', object.toMap(), where: 'id=?', whereArgs: [object.id]);
+  //   return count;
+  // }
+
+  Future<int> updateRusak(Rusak object) async {
     Database db = await this.initDb();
     int count = await db.update('barangrusak', object.toMap(),
         where: 'id=?', whereArgs: [object.id]);
     return count;
   }
 
-  //fungsi untuk menghapus data tabel stok
+  Future<int> updateSupplier(Supplier object) async {
+    Database db = await this.initDb();
+    int count = await db.update('supplier', object.toMap(),
+        where: 'id=?', whereArgs: [object.id]);
+    return count;
+  }
+
+  //fungsi untuk menghapus data tabel
   Future<int> deleteBarang(int id) async {
     Database db = await this.initDb();
     int count = await db.delete('barang', where: 'id=?', whereArgs: [id]);
     return count;
   }
 
-  Future<int> deleteBarangrusak(int id) async {
+  Future<int> deleteRusak(int id) async {
     Database db = await this.initDb();
     int count = await db.delete('barangrusak', where: 'id=?', whereArgs: [id]);
+    return count;
+  }
+
+  Future<int> deleteSupplier(int id) async {
+    Database db = await this.initDb();
+    int count = await db.delete('supplier', where: 'id=?', whereArgs: [id]);
     return count;
   }
 
@@ -118,14 +164,24 @@ class DbHelper {
     return barangList;
   }
 
-  Future<List<BarangRusak>> getBarangrusakList() async {
-    var barangrusakMapList = await selectBarangrusak();
-    int count = barangrusakMapList.length;
-    List<BarangRusak> barangrusakList = [];
+  Future<List<Rusak>> getRusakList() async {
+    var rusakMapList = await selectRusak();
+    int count = rusakMapList.length;
+    List<Rusak> rusakList = [];
     for (int i = 0; i < count; i++) {
-      barangrusakList.add(BarangRusak.fromMap(barangrusakMapList[i]));
+      rusakList.add(Rusak.fromMap(rusakMapList[i]));
     }
-    return barangrusakList;
+    return rusakList;
+  }
+
+  Future<List<Supplier>> getSupplierList() async {
+    var supplierMapList = await selectSupplier();
+    int count = supplierMapList.length;
+    List<Supplier> supplierList = [];
+    for (int i = 0; i < count; i++) {
+      supplierList.add(Supplier.fromMap(supplierMapList[i]));
+    }
+    return supplierList;
   }
 
   factory DbHelper() {
