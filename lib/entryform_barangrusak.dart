@@ -1,40 +1,41 @@
 import 'package:flutter/material.dart';
 import 'barangrusak.dart';
 
-class EntryFormbarangRusak extends StatefulWidget {
-  final BarangRusak barangRusak;
-  EntryFormbarangRusak(this.barangRusak);
+class EntryForm extends StatefulWidget {
+  final Rusak itemrusak;
+  EntryForm(this.itemrusak);
   @override
-  EntryFormBarangState createState() => EntryFormBarangState(this.barangRusak);
+  EntryFormState createState() => EntryFormState(this.itemrusak);
 }
 
 //class controller
-class EntryFormBarangState extends State<EntryFormbarangRusak> {
-  BarangRusak barangRusak;
-  EntryFormBarangState(this.barangRusak);
+class EntryFormState extends State<EntryForm> {
+  Rusak itemrusak;
+  EntryFormState(this.itemrusak);
   TextEditingController kodebarangController = TextEditingController();
   TextEditingController satuanController = TextEditingController();
   TextEditingController keteranganController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     //kondisi
-    if (barangRusak != null) {
-      kodebarangController.text = barangRusak.kodebarang;
-      satuanController.text = barangRusak.satuan;
-      //stokController.text = barang.stok.toString();
-      keteranganController.text = barangRusak.keterangan;
+
+    if (itemrusak != null) {
+      kodebarangController.text = itemrusak.kodebarang;
+      satuanController.text = itemrusak.satuan;
+      keteranganController.text = itemrusak.keterangan;
     }
     //rubah
     return Scaffold(
         appBar: AppBar(
-          title: barangRusak == null ? Text('Tambah') : Text('Ubah'),
+          title: itemrusak == null ? Text('Tambah') : Text('Ubah'),
           leading: Icon(Icons.keyboard_arrow_left),
+          backgroundColor: Colors.red,
         ),
         body: Padding(
+          // serial number
           padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
           child: ListView(
             children: <Widget>[
-              // nama
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -51,7 +52,7 @@ class EntryFormBarangState extends State<EntryFormbarangRusak> {
                   },
                 ),
               ),
-              //
+              // nama item yang akan dimasukkan
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -68,9 +69,7 @@ class EntryFormBarangState extends State<EntryFormbarangRusak> {
                   },
                 ),
               ),
-              // harga
-
-              //
+              // memasukkan stok
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -94,30 +93,28 @@ class EntryFormBarangState extends State<EntryFormbarangRusak> {
                   children: <Widget>[
                     // tombol simpan
                     Expanded(
-                      child: RaisedButton(
-                        color: Theme.of(context).primaryColorDark,
-                        textColor: Theme.of(context).primaryColorLight,
+                      child: ElevatedButton(
+                        // textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Save',
                           textScaleFactor: 1.5,
                         ),
                         onPressed: () {
-                          if (barangRusak == null) {
-                            // tambah data
-                            //barang = Barang(
-                            //  kodebarangController.text,
-                            //  satuanController.text,
-                            //  int.parse(stokController.text),
-                            //  keteranganController.text);
+                          if (itemrusak == null) {
+                            // tambah data yang baru dimasukkan
+                            itemrusak = Rusak(
+                              kodebarangController.text,
+                              satuanController.text,
+                              keteranganController.text,
+                            );
                           } else {
-                            // ubah data
-                            kodebarangController.text;
-                            satuanController.text;
-
-                            keteranganController.text;
+                            // untuk mengubah data
+                            itemrusak.kodebarang = kodebarangController.text;
+                            itemrusak.satuan = satuanController.text;
+                            itemrusak.keterangan = keteranganController.text;
                           }
                           // kembali ke layar sebelumnya dengan membawa objek item
-                          Navigator.pop(context, barangRusak);
+                          Navigator.pop(context, itemrusak);
                         },
                       ),
                     ),
@@ -126,9 +123,9 @@ class EntryFormBarangState extends State<EntryFormbarangRusak> {
                     ),
                     // tombol batal
                     Expanded(
-                      child: RaisedButton(
-                        color: Theme.of(context).primaryColorDark,
-                        textColor: Theme.of(context).primaryColorLight,
+                      child: ElevatedButton(
+                        // color: Theme.of(context).primaryColorDark,
+                        // textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Cancel',
                           textScaleFactor: 1.5,

@@ -1,0 +1,757 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/berise/DBhelper.dart', 'packages/berise/barangrusak.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/material/page.dart', 'packages/berise/entryform_barangrusak.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/material/circle_avatar.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/sqflite_common/src/open_options.dart'], (function load__packages__berise__home_barangrusak_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__berise__DBhelper$46dart, packages__berise__barangrusak$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__material__page$46dart, packages__berise__entryform_barangrusak$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__material__circle_avatar$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__sqflite_common__src__open_options$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const DBhelper = packages__berise__DBhelper$46dart.DBhelper;
+  const barangrusak = packages__berise__barangrusak$46dart.barangrusak;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const page = packages__flutter__src__material__page$46dart.src__material__page;
+  const entryform_barangrusak = packages__berise__entryform_barangrusak$46dart.entryform_barangrusak;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const card = packages__flutter__src__material__card$46dart.src__material__card;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const sqlite_api = packages__sqflite_common__src__open_options$46dart.sqlite_api;
+  var home_barangrusak = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $length = dartx.length;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    BarangRusakL: () => (T.BarangRusakL = dart.constFn(dart.legacy(barangrusak.BarangRusak)))(),
+    JSArrayOfBarangRusakL: () => (T.JSArrayOfBarangRusakL = dart.constFn(_interceptors.JSArray$(T.BarangRusakL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    FutureLOfNull: () => (T.FutureLOfNull = dart.constFn(dart.legacy(T.FutureOfNull())))(),
+    VoidToFutureLOfNull: () => (T.VoidToFutureLOfNull = dart.constFn(dart.fnType(T.FutureLOfNull(), [])))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    EntryFormbarangRusakL: () => (T.EntryFormbarangRusakL = dart.constFn(dart.legacy(entryform_barangrusak.EntryFormbarangRusak)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    BuildContextLToEntryFormbarangRusakL: () => (T.BuildContextLToEntryFormbarangRusakL = dart.constFn(dart.fnType(T.EntryFormbarangRusakL(), [T.BuildContextL()])))(),
+    FutureOrOfBarangRusakL: () => (T.FutureOrOfBarangRusakL = dart.constFn(async.FutureOr$(T.BarangRusakL())))(),
+    FutureOrLOfBarangRusakL: () => (T.FutureOrLOfBarangRusakL = dart.constFn(dart.legacy(T.FutureOrOfBarangRusakL())))(),
+    CardL: () => (T.CardL = dart.constFn(dart.legacy(card.Card)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    BuildContextLAndintLToCardL: () => (T.BuildContextLAndintLToCardL = dart.constFn(dart.fnType(T.CardL(), [T.BuildContextL(), T.intL()])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    ListOfBarangRusakL: () => (T.ListOfBarangRusakL = dart.constFn(core.List$(T.BarangRusakL())))(),
+    ListLOfBarangRusakL: () => (T.ListLOfBarangRusakL = dart.constFn(dart.legacy(T.ListOfBarangRusakL())))(),
+    ListLOfBarangRusakLToNull: () => (T.ListLOfBarangRusakLToNull = dart.constFn(dart.fnType(core.Null, [T.ListLOfBarangRusakL()])))(),
+    DatabaseL: () => (T.DatabaseL = dart.constFn(dart.legacy(sqlite_api.Database)))(),
+    DatabaseLToNull: () => (T.DatabaseLToNull = dart.constFn(dart.fnType(core.Null, [T.DatabaseL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 9,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 24,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 27,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.constList([C[11] || CT.C11], T._LocationL());
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[10] || CT.C10,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 15,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14, C[15] || CT.C15], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 13,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.constList([C[18] || CT.C18, C[19] || CT.C19], T._LocationL());
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[17] || CT.C17,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 11,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 9,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 20,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 7,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "barangRusak",
+        [_Location_column]: 35,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.constList([C[36] || CT.C36], T._LocationL());
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[35] || CT.C35,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 15,
+        [_Location_line]: 73,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 74,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40], T._LocationL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 72,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 36,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 15,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44], T._LocationL());
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 82,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 15,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50, C[51] || CT.C51], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 81,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trailing",
+        [_Location_column]: 13,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.constList([C[54] || CT.C54, C[55] || CT.C55, C[56] || CT.C56, C[57] || CT.C57], T._LocationL());
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[53] || CT.C53,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 71,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 11,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 11,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 71,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61, C[62] || CT.C62], T._LocationL());
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 68,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 7,
+        [_Location_line]: 66,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 7,
+        [_Location_line]: 67,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65, C[66] || CT.C66], T._LocationL());
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 65,
+        [_Location_file]: "file:///E:/SEMESTER%204/PEMROGRAMAN%20MOBILE/UAS/berise/lib/home_barangrusak.dart"
+      });
+    }
+  }, false);
+  var C = Array(67).fill(void 0);
+  var I = ["package:berise/home_barangrusak.dart"];
+  home_barangrusak.BarangRusakPage = class BarangRusakPage extends framework.StatefulWidget {
+    createState() {
+      return new home_barangrusak.BarangRusakPageState.new();
+    }
+  };
+  (home_barangrusak.BarangRusakPage.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    home_barangrusak.BarangRusakPage.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = home_barangrusak.BarangRusakPage.prototype;
+  dart.addTypeTests(home_barangrusak.BarangRusakPage);
+  dart.addTypeCaches(home_barangrusak.BarangRusakPage);
+  dart.setMethodSignature(home_barangrusak.BarangRusakPage, () => ({
+    __proto__: dart.getMethods(home_barangrusak.BarangRusakPage.__proto__),
+    createState: dart.fnType(dart.legacy(home_barangrusak.BarangRusakPageState), [])
+  }));
+  dart.setLibraryUri(home_barangrusak.BarangRusakPage, I[0]);
+  var dbHelper = dart.privateName(home_barangrusak, "BarangRusakPageState.dbHelper");
+  var count = dart.privateName(home_barangrusak, "BarangRusakPageState.count");
+  var itemList = dart.privateName(home_barangrusak, "BarangRusakPageState.itemList");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  home_barangrusak.BarangRusakPageState = class BarangRusakPageState extends framework.State$(dart.legacy(home_barangrusak.BarangRusakPage)) {
+    get dbHelper() {
+      return this[dbHelper];
+    }
+    set dbHelper(value) {
+      this[dbHelper] = value;
+    }
+    get count() {
+      return this[count];
+    }
+    set count(value) {
+      this[count] = value;
+    }
+    get itemList() {
+      return this[itemList];
+    }
+    set itemList(value) {
+      this[itemList] = value;
+    }
+    build(context) {
+      if (this.itemList == null) {
+        this.itemList = T.JSArrayOfBarangRusakL().of([]);
+      }
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Daftar Item", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), body: new basic.Column.new({children: T.JSArrayOfWidgetL().of([new basic.Expanded.new({child: this.createListView(), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), new container.Container.new({alignment: alignment.Alignment.bottomCenter, child: new basic.SizedBox.new({width: 1 / 0, child: new raised_button.RaisedButton.new({child: new text.Text.new("Tambah Item", {$creationLocationd_0dea112b090073317d4: C[9] || CT.C9}), onPressed: dart.fn(() => async.async(core.Null, (function*() {
+                    let barangrusak = (yield this.navigateToEntryForm(context, null));
+                    if (barangrusak != null) {
+                      let result = (yield this.dbHelper.insertBarangrusak(barangrusak));
+                      if (dart.notNull(result) > 0) {
+                        this.updateListView();
+                      }
+                    }
+                  }).bind(this)), T.VoidToFutureLOfNull()), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12}), $creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), $creationLocationd_0dea112b090073317d4: C[20] || CT.C20})]), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27});
+    }
+    navigateToEntryForm(context, barangrusak) {
+      return async.async(T.BarangRusakL(), function* navigateToEntryForm() {
+        let result = (yield navigator.Navigator.push(dart.dynamic, context, new page.MaterialPageRoute.new({builder: dart.fn(context => new entryform_barangrusak.EntryFormbarangRusak.new(barangrusak, {$creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), T.BuildContextLToEntryFormbarangRusakL())})));
+        return T.FutureOrLOfBarangRusakL().as(result);
+      });
+    }
+    createListView() {
+      let textStyle = theme.Theme.of(this.context).textTheme.headline5;
+      return new scroll_view.ListView.builder({itemCount: this.count, itemBuilder: dart.fn((context, index) => new card.Card.new({color: colors.Colors.white, elevation: 2.0, child: new list_tile.ListTile.new({leading: new circle_avatar.CircleAvatar.new({backgroundColor: colors.Colors.red, child: new icon.Icon.new(icons.Icons.ad_units, {$creationLocationd_0dea112b090073317d4: C[34] || CT.C34}), $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}), title: new text.Text.new(this.itemList[$_get](index).kodebarang, {style: textStyle, $creationLocationd_0dea112b090073317d4: C[41] || CT.C41}), trailing: new gesture_detector.GestureDetector.new({child: new icon.Icon.new(icons.Icons.delete, {$creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), onTap: dart.fn(() => async.async(core.Null, (function*() {
+                this.deleteItem(this.itemList[$_get](index));
+              }).bind(this)), T.VoidToFutureLOfNull()), $creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), onTap: dart.fn(() => async.async(core.Null, (function*() {
+              let item = (yield this.navigateToEntryForm(context, this.itemList[$_get](index)));
+              if (item != null) this.editItem(item);
+            }).bind(this)), T.VoidToFutureLOfNull()), $creationLocationd_0dea112b090073317d4: C[52] || CT.C52}), $creationLocationd_0dea112b090073317d4: C[58] || CT.C58}), T.BuildContextLAndintLToCardL()), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63});
+    }
+    editItem(object) {
+      return async.async(dart.void, (function* editItem() {
+        let result = (yield this.dbHelper.updateBarangrusak(object));
+        if (dart.notNull(result) > 0) {
+          this.updateListView();
+        }
+      }).bind(this));
+    }
+    deleteItem(object) {
+      return async.async(dart.void, (function* deleteItem() {
+        let result = (yield this.dbHelper.deleteBarangrusak(object.id));
+        if (dart.notNull(result) > 0) {
+          this.updateListView();
+        }
+      }).bind(this));
+    }
+    updateListView() {
+      let dbFuture = this.dbHelper.initDb();
+      dbFuture.then(core.Null, dart.fn(database => {
+        let itemListFuture = this.dbHelper.getBarangrusakList();
+        itemListFuture.then(core.Null, dart.fn(itemList => {
+          this.setState(dart.fn(() => {
+            this.itemList = itemList;
+            this.count = itemList[$length];
+          }, T.VoidToNull()));
+        }, T.ListLOfBarangRusakLToNull()));
+      }, T.DatabaseLToNull()));
+    }
+  };
+  (home_barangrusak.BarangRusakPageState.new = function() {
+    this[dbHelper] = DBhelper.DbHelper.new();
+    this[count] = 0;
+    this[itemList] = null;
+    home_barangrusak.BarangRusakPageState.__proto__.new.call(this);
+    ;
+  }).prototype = home_barangrusak.BarangRusakPageState.prototype;
+  dart.addTypeTests(home_barangrusak.BarangRusakPageState);
+  dart.addTypeCaches(home_barangrusak.BarangRusakPageState);
+  dart.setMethodSignature(home_barangrusak.BarangRusakPageState, () => ({
+    __proto__: dart.getMethods(home_barangrusak.BarangRusakPageState.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
+    navigateToEntryForm: dart.fnType(dart.legacy(async.Future$(dart.legacy(barangrusak.BarangRusak))), [dart.legacy(framework.BuildContext), dart.legacy(barangrusak.BarangRusak)]),
+    createListView: dart.fnType(dart.legacy(scroll_view.ListView), []),
+    editItem: dart.fnType(dart.void, [dart.legacy(barangrusak.BarangRusak)]),
+    deleteItem: dart.fnType(dart.void, [dart.legacy(barangrusak.BarangRusak)]),
+    updateListView: dart.fnType(dart.void, [])
+  }));
+  dart.setLibraryUri(home_barangrusak.BarangRusakPageState, I[0]);
+  dart.setFieldSignature(home_barangrusak.BarangRusakPageState, () => ({
+    __proto__: dart.getFields(home_barangrusak.BarangRusakPageState.__proto__),
+    dbHelper: dart.fieldType(dart.legacy(DBhelper.DbHelper)),
+    count: dart.fieldType(dart.legacy(core.int)),
+    itemList: dart.fieldType(dart.legacy(core.List$(dart.legacy(barangrusak.BarangRusak))))
+  }));
+  dart.trackLibraries("packages/berise/home_barangrusak.dart", {
+    "package:berise/home_barangrusak.dart": home_barangrusak
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["home_barangrusak.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAUwC;IAAsB;;;;;;EAC9D;;;;;;;;;;;;;;;;;IAGW;;;;;;IACL;;;;;;IACc;;;;;;UAEQ;AACxB,UAAI,AAAS;AACmB,QAA9B,gBAAW;;AAEb,YAAO,oCACG,+BACC,kBAAK,wIAER,gCAAiB,yBACrB,+BACS,gFAET,wCACuB,yCACd,6CAEE,2CACE,kBAAK,oFACD;AACL,uCAAc,MAAM,yBAAoB,OAAO,EAAE;AACrD,wBAAI,AAAY,WAAD;AAET,oCAAS,MAAM,AAAS,gCAAkB,WAAW;AACzD,0BAAW,aAAP,MAAM,IAAG;AACK,wBAAhB;;;kBAGL;IAMb;wBAGiB,SAAqB;AADC;AAEjC,sBAAS,MAAgB,uCAAK,OAAO,EACrC,yCAA2B,QAAc,WACpC,mDAAqB,WAAW;AAEzC,8CAAO,MAAM;MACf;;;AAGY,sBAAkB,AAAY,AAAU,eAAnB;AAC/B,YAAgB,8CACH,yBACE,SAAc,SAAa,UAC/B,0BACS,gCACH,YACJ,qCACI,qDACiB,0BACjB,kBAAW,oJAEb,kBACA,AAAQ,AAAQ,qBAAP,KAAK,sBACZ,SAAS,uEAGR,iDACD,kBAAW,uFACX;AAEsB,gBAA3B,gBAAW,AAAQ,qBAAC,KAAK;cAC1B,4GAEI;AACD,0BACA,MAAM,yBAAoB,OAAO,EAAO,AAAQ,qBAAC,KAAK;AAE1D,kBAAI,AAAK,IAAD,UAAU,AAAc,cAAL,IAAI;YAChC;IAKX;aAG0B;AAAb;AACP,sBAAS,MAAM,AAAS,gCAAkB,MAAM;AACpD,YAAW,aAAP,MAAM,IAAG;AACK,UAAhB;;MAEJ;;eAG4B;AAAb;AACT,sBAAS,MAAM,AAAS,gCAAkB,AAAO,MAAD;AACpD,YAAW,aAAP,MAAM,IAAG;AACK,UAAhB;;MAEJ;;;AAIyB,qBAAW,AAAS;AAUzC,MATF,AAAS,QAAD,iBAAM,QAAC;AAEa,6BAAiB,AAAS;AAMlD,QALF,AAAe,cAAD,iBAAM,QAAC;AAIjB,UAHF,cAAS;AACiB,YAAnB,gBAAW,QAAQ;AACI,YAAvB,aAAQ,AAAS,QAAD;;;;IAI7B;;;IAlHS,iBAAW;IAChB,cAAQ;IACM;;;EAiHpB","file":"../../../../../packages/berise/home_barangrusak.dart.lib.js"}');
+  // Exports:
+  return {
+    home_barangrusak: home_barangrusak
+  };
+}));
+
+//# sourceMappingURL=home_barangrusak.dart.lib.js.map

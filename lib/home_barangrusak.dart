@@ -6,24 +6,32 @@ import 'package:berise/entryform_barangrusak.dart';
 import 'barangrusak.dart';
 
 //pendukung program asinkron
-class BarangRusakPage extends StatefulWidget {
+class HomeRusak extends StatefulWidget {
   @override
-  BarangRusakPageState createState() => BarangRusakPageState();
+  HomeRusakState createState() => HomeRusakState();
 }
 
-class BarangRusakPageState extends State<BarangRusakPage> {
+class HomeRusakState extends State<HomeRusak> {
   DbHelper dbHelper = DbHelper();
   int count = 0;
-  List<BarangRusak> itemList;
+  List<Rusak> rusakList;
+
+  @override
+  void initState() {
+    super.initState();
+    updateListView();
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (itemList == null) {
-      itemList = List<BarangRusak>();
+    if (rusakList == null) {
+      rusakList = [];
     }
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Daftar Item'),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Gudang Jaringan'),
+      // ),
+      backgroundColor: Colors.red,
       body: Column(children: [
         Expanded(
           child: createListView(),
@@ -32,13 +40,12 @@ class BarangRusakPageState extends State<BarangRusakPage> {
           alignment: Alignment.bottomCenter,
           child: SizedBox(
             width: double.infinity,
-            child: RaisedButton(
-              child: Text("Tambah Item"),
+            child: ElevatedButton(
+              child: Text("Tambah Deskripsi"), //button tambah deskripsi
               onPressed: () async {
-                var barangrusak = await navigateToEntryForm(context, null);
-                if (barangrusak != null) {
-                  //TODO 2 Panggil Fungsi untuk Insert ke DB
-                  int result = await dbHelper.insertBarangrusak(barangrusak);
+                var rusak = await navigateToEntryForm(context, null);
+                if (rusak != null) {
+                  int result = await dbHelper.insertRusak(rusak);
                   if (result > 0) {
                     updateListView();
                   }
@@ -51,15 +58,16 @@ class BarangRusakPageState extends State<BarangRusakPage> {
     );
   }
 
-  Future<BarangRusak> navigateToEntryForm(
-      BuildContext context, BarangRusak barangrusak) async {
+  Future<Rusak> navigateToEntryForm(
+      BuildContext context, Rusak supplier) async {
     var result = await Navigator.push(context,
         MaterialPageRoute(builder: (BuildContext context) {
-      return EntryFormbarangRusak(barangrusak);
+      return EntryForm(supplier);
     }));
     return result;
   }
 
+//list view yang akan ditampilkan
   ListView createListView() {
     TextStyle textStyle = Theme.of(context).textTheme.headline5;
     return ListView.builder(
@@ -74,22 +82,26 @@ class BarangRusakPageState extends State<BarangRusakPage> {
               child: Icon(Icons.ad_units),
             ),
             title: Text(
-              this.itemList[index].kodebarang,
+              this.rusakList[index].id.toString() +
+                  "-" +
+                  this.rusakList[index].kodebarang,
               style: textStyle,
             ),
-            //subtitle: Text(this.itemList[index].stok.toString()),
+            subtitle: Text(this.rusakList[index].satuan),
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {
-                //TODO 3 Panggil Fungsi untuk Hapus data
-                deleteItem(itemList[index]);
+                dbHelper.deleteRusak(this.rusakList[index].id);
+                updateListView();
               },
             ),
             onTap: () async {
-              var item =
-                  await navigateToEntryForm(context, this.itemList[index]);
-              //TODO 4 Panggil Fungsi untuk Edit data
-              if (item != null) editItem(item);
+              var rusak =
+                  await navigateToEntryForm(context, this.rusakList[index]);
+              int result = await dbHelper.updateRusak(rusak);
+              if (result > 0) {
+                updateListView();
+              }
             },
           ),
         );
@@ -97,31 +109,14 @@ class BarangRusakPageState extends State<BarangRusakPage> {
     );
   }
 
-//edit contact
-  void editItem(BarangRusak object) async {
-    int result = await dbHelper.updateBarangrusak(object);
-    if (result > 0) {
-      updateListView();
-    }
-  }
-
-//delete item
-  void deleteItem(BarangRusak object) async {
-    int result = await dbHelper.deleteBarangrusak(object.id);
-    if (result > 0) {
-      updateListView();
-    }
-  }
-
   //update List item
   void updateListView() {
     final Future<Database> dbFuture = dbHelper.initDb();
     dbFuture.then((database) {
-      //TODO 1 Select data dari DB
-      Future<List<BarangRusak>> itemListFuture = dbHelper.getBarangrusakList();
+      Future<List<Rusak>> itemListFuture = dbHelper.getRusakList();
       itemListFuture.then((itemList) {
         setState(() {
-          this.itemList = itemList;
+          this.rusakList = itemList;
           this.count = itemList.length;
         });
       });

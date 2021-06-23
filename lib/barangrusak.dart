@@ -4,11 +4,10 @@ void main() {
   runApp(MyApp());
 }
 
-class BarangRusak {
+class Rusak {
   int _id;
   String _kodebarang;
   String _satuan;
-  //int _stok;
   String _keterangan;
 
   int get id => _id;
@@ -18,16 +17,13 @@ class BarangRusak {
   String get satuan => this._satuan;
   set satuan(String value) => this._satuan = value;
 
-  //get stok => this._stok;
-  //set stok(value) => this._stok = value;
-
   String get keterangan => this._keterangan;
   set keterangan(String value) => this._keterangan = value;
 // konstruktor versi 1
-  //Barang(this._kodebarang, this._satuan, this._stok, this._keterangan);
+  Rusak(this._kodebarang, this._satuan, this._keterangan);
 
   // konstruktor versi 2: konversi dari Map ke Item
-  BarangRusak.fromMap(Map<String, dynamic> map) {
+  Rusak.fromMap(Map<String, dynamic> map) {
     this._id = map['id'];
     this._kodebarang = map['kodebarang'];
     this._satuan = map['satuan'];
