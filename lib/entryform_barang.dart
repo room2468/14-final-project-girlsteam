@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'barang.dart';
 
-class EntryFormBarang extends StatefulWidget {
-  final Barang barang;
-  EntryFormBarang(this.barang);
+class EntryForm extends StatefulWidget {
+  final Barang itembarang;
+  EntryForm(this.itembarang);
   @override
-  EntryFormBarangState createState() => EntryFormBarangState(this.barang);
+  EntryFormState createState() => EntryFormState(this.itembarang);
 }
 
 //class controller
-class EntryFormBarangState extends State<EntryFormBarang> {
-  Barang barang;
-  EntryFormBarangState(this.barang);
+class EntryFormState extends State<EntryForm> {
+  Barang itembarang;
+  EntryFormState(this.itembarang);
   TextEditingController kodebarangController = TextEditingController();
   TextEditingController satuanController = TextEditingController();
   TextEditingController stokController = TextEditingController();
@@ -19,23 +19,24 @@ class EntryFormBarangState extends State<EntryFormBarang> {
   @override
   Widget build(BuildContext context) {
     //kondisi
-    if (barang != null) {
-      kodebarangController.text = barang.kodebarang;
-      satuanController.text = barang.satuan;
-      stokController.text = barang.stok.toString();
-      keteranganController.text = barang.keterangan;
+
+    if (itembarang != null) {
+      kodebarangController.text = itembarang.kodebarang.toString();
+      satuanController.text = itembarang.satuan;
+      stokController.text = itembarang.stok.toString();
+      keteranganController.text = itembarang.keterangan;
     }
     //rubah
     return Scaffold(
         appBar: AppBar(
-          title: barang == null ? Text('Tambah') : Text('Ubah'),
+          backgroundColor: Colors.red,
+          title: itembarang == null ? Text('Tambah') : Text('Ubah'),
           leading: Icon(Icons.keyboard_arrow_left),
         ),
         body: Padding(
           padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
           child: ListView(
             children: <Widget>[
-              // nama
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -52,7 +53,7 @@ class EntryFormBarangState extends State<EntryFormBarang> {
                   },
                 ),
               ),
-              //
+              // nama
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -69,14 +70,14 @@ class EntryFormBarangState extends State<EntryFormBarang> {
                   },
                 ),
               ),
-              // harga
+//entry  keterangan item/barang
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
                   controller: stokController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
-                    labelText: 'Stok',
+                    labelText: 'Jumlah',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -86,7 +87,7 @@ class EntryFormBarangState extends State<EntryFormBarang> {
                   },
                 ),
               ),
-              //
+
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
@@ -110,30 +111,31 @@ class EntryFormBarangState extends State<EntryFormBarang> {
                   children: <Widget>[
                     // tombol simpan
                     Expanded(
-                      child: RaisedButton(
-                        color: Theme.of(context).primaryColorDark,
-                        textColor: Theme.of(context).primaryColorLight,
+                      child: ElevatedButton(
+                        // color: Theme.of(context).primaryColorDark,
+                        // textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Save',
                           textScaleFactor: 1.5,
                         ),
                         onPressed: () {
-                          if (barang == null) {
+                          if (itembarang == null) {
                             // tambah data
-                            barang = Barang(
-                                kodebarangController.text,
-                                satuanController.text,
-                                int.parse(stokController.text),
-                                keteranganController.text);
+                            itembarang = Barang(
+                              kodebarangController.text,
+                              satuanController.text,
+                              int.parse(stokController.text),
+                              keteranganController.text,
+                            );
                           } else {
-                            // ubah data
-                            kodebarangController.text;
-                            satuanController.text;
-                            int.parse(stokController.text);
-                            keteranganController.text;
+                            // mengubah data
+                            itembarang.kodebarang = kodebarangController.text;
+                            itembarang.satuan = satuanController.text;
+                            itembarang.stok = int.parse(stokController.text);
+                            itembarang.keterangan = keteranganController.text;
                           }
                           // kembali ke layar sebelumnya dengan membawa objek item
-                          Navigator.pop(context, barang);
+                          Navigator.pop(context, itembarang);
                         },
                       ),
                     ),
@@ -142,9 +144,9 @@ class EntryFormBarangState extends State<EntryFormBarang> {
                     ),
                     // tombol batal
                     Expanded(
-                      child: RaisedButton(
-                        color: Theme.of(context).primaryColorDark,
-                        textColor: Theme.of(context).primaryColorLight,
+                      child: ElevatedButton(
+                        // color: Theme.of(context).primaryColorDark,
+                        // textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Cancel',
                           textScaleFactor: 1.5,
