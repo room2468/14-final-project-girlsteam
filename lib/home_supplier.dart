@@ -28,10 +28,10 @@ class HomeSupplierState extends State<HomeSupplier> {
       supplierList = [];
     }
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Gudang Jaringan'),
-      // ),
-      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text('Supplier'),
+      ),
+      backgroundColor: Colors.white,
       body: Column(children: [
         Expanded(
           child: createListView(),
@@ -41,7 +41,7 @@ class HomeSupplierState extends State<HomeSupplier> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text("Tambah Deskripsi"), //button tambah deskripsi
+              child: Text("Tambah Data"), //button tambah deskripsi
               onPressed: () async {
                 var supplier = await navigateToEntryForm(context, null);
                 if (supplier != null) {
@@ -74,20 +74,20 @@ class HomeSupplierState extends State<HomeSupplier> {
       itemCount: count,
       itemBuilder: (BuildContext context, int index) {
         return Card(
-          color: Colors.white,
+          color: Colors.grey,
           elevation: 2.0,
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.white,
               child: Icon(Icons.ad_units),
             ),
             title: Text(
-              this.supplierList[index].id.toString() +
+              this.supplierList[index].nama +
                   "-" +
-                  this.supplierList[index].nama,
+                  this.supplierList[index].alamat,
               style: textStyle,
             ),
-            subtitle: Text(this.supplierList[index].alamat),
+            subtitle: Text(this.supplierList[index].notelepon.toString()),
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {

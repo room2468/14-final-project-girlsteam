@@ -28,10 +28,10 @@ class HomeRusakState extends State<HomeRusak> {
       rusakList = [];
     }
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Gudang Jaringan'),
-      // ),
-      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text('Barang Rusak'),
+      ),
+      backgroundColor: Colors.white,
       body: Column(children: [
         Expanded(
           child: createListView(),
@@ -41,7 +41,7 @@ class HomeRusakState extends State<HomeRusak> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text("Tambah Deskripsi"), //button tambah deskripsi
+              child: Text("Tambah Data"), //button tambah deskripsi
               onPressed: () async {
                 var rusak = await navigateToEntryForm(context, null);
                 if (rusak != null) {
@@ -74,20 +74,20 @@ class HomeRusakState extends State<HomeRusak> {
       itemCount: count,
       itemBuilder: (BuildContext context, int index) {
         return Card(
-          color: Colors.white,
+          color: Colors.grey,
           elevation: 2.0,
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.white,
               child: Icon(Icons.ad_units),
             ),
             title: Text(
-              this.rusakList[index].id.toString() +
+              this.rusakList[index].kodebarang +
                   "-" +
-                  this.rusakList[index].kodebarang,
+                  this.rusakList[index].satuan,
               style: textStyle,
             ),
-            subtitle: Text(this.rusakList[index].satuan),
+            subtitle: Text(this.rusakList[index].keterangan),
             trailing: GestureDetector(
               child: Icon(Icons.delete),
               onTap: () async {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:berise/login_page.dart';
 import 'package:berise/home_barang.dart';
 import 'package:berise/home_barangrusak.dart';
 import 'package:berise/home_supplier.dart';
@@ -192,12 +193,12 @@ class HomePage extends StatelessWidget {
                                   )),
                                   Container(
                                       padding: EdgeInsets.only(
-                                        left: 0,
+                                        left: 15,
                                       ),
                                       child: Row(
                                         children: [
                                           Text(
-                                            "Barang Masuk",
+                                            "Supplier",
                                             style: TextStyle(
                                               color: Color(0xFFF05A22),
                                               fontFamily: 'Montserrat',
@@ -299,7 +300,12 @@ class HomePage extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18.0),
                                   side: BorderSide(color: Colors.white)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    new MaterialPageRoute(
+                                        builder: (context) => new LoginPage()));
+                              },
                               color: Colors.white,
                               textColor: Colors.black,
                               child: Column(

@@ -28,10 +28,10 @@ class HomeBarangState extends State<HomeBarang> {
       barangList = [];
     }
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Gudang Jaringan'),
-      // ),
-      backgroundColor: Colors.red,
+      appBar: AppBar(
+        title: Text('Barang'),
+      ),
+      backgroundColor: Colors.white,
       body: Column(children: [
         Expanded(
           child: createListView(),
@@ -41,7 +41,7 @@ class HomeBarangState extends State<HomeBarang> {
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              child: Text("Tambah Deskripsi"), //button tambah deskripsi
+              child: Text("Tambah Barang"), //button tambah deskripsi
               onPressed: () async {
                 var barang = await navigateToEntryForm(context, null);
                 if (barang != null) {
@@ -74,17 +74,18 @@ class HomeBarangState extends State<HomeBarang> {
       itemCount: count,
       itemBuilder: (BuildContext context, int index) {
         return Card(
-          color: Colors.white,
+          color: Colors.grey,
           elevation: 2.0,
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.blue,
               child: Icon(Icons.ad_units),
             ),
             title: Text(
-              this.barangList[index].id.toString() +
+              this.barangList[index].kodebarang +
                   "-" +
-                  this.barangList[index].kodebarang,
+                  this.barangList[index].stok.toString() +
+                  this.barangList[index].satuan,
               style: textStyle,
             ),
             subtitle: Text(this.barangList[index].keterangan),
